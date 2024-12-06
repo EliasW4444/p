@@ -3,7 +3,13 @@ const authEndpoint = "https://accounts.spotify.com/authorize";
 
 // const clientId = "7fcfb8b43cfa49c395412083cf51bf27";
 // const clientId = "da0bad7f97f941a89d7f8c60e5fcd326";
-const clientId = "a2db107627e644a3b34c1ce7ed8a1ea8";
+//const clientId = "a2db107627e644a3b34c1ce7ed8a1ea8";
+const config = {
+  primaryClientId: "7fcfb8b43cfa49c395412083cf51bf27",
+  secondaryClientId: "a2db107627e644a3b34c1ce7ed8a1ea8",
+};
+
+const clientId = process.env.USE_SECONDARY ? config.secondaryClientId : config.primaryClientId;
 
 const scopesArray = [
   "user-modify-playback-state",
